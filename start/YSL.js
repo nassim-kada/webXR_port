@@ -34,7 +34,7 @@ class App{
 		this.renderer.setSize( window.innerWidth, window.innerHeight );
 		this.renderer.outputEncoding = THREE.sRGBEncoding;
 		container.appendChild( this.renderer.domElement );
-        this.setEnvironment();
+        
         
         this.workingVec3 = new THREE.Vector3();
         
@@ -44,19 +44,6 @@ class App{
 		window.addEventListener('resize', this.resize.bind(this));
         
 	}
-    
-    setEnvironment(){
-        const loader = new RGBELoader().setPath( '../../assets/' )
-        loader.load( 'hdr/venice_sunset_1k.hdr', ( texture ) => {
-    
-            texture.mapping = THREE.EquirectangularReflectionMapping;
-            const envMap = texture;
-            
-            this.scene.environment = envMap;
-    
-        } );
-    }
-	
     resize(){ 
         this.camera.aspect = window.innerWidth / window.innerHeight;
     	this.camera.updateProjectionMatrix();
