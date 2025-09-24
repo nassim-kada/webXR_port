@@ -119,15 +119,13 @@ class App{
         this.controllerGrip.add( controllerModelFactory.createControllerModel( this.controllerGrip ) );
         this.scene.add( this.controllerGrip );
         
-        // controller
         this.controller1 = this.renderer.xr.getController( 1 );
         this.scene.add( this.controller1 );
 
         this.controllerGrip1 = this.renderer.xr.getControllerGrip( 1 );
         this.controllerGrip1.add( controllerModelFactory.createControllerModel( this.controllerGrip1 ) );
         this.scene.add( this.controllerGrip1 );
-        
-        //
+ 
         const geometry = new THREE.BufferGeometry().setFromPoints( [ new THREE.Vector3( 0, 0, 0 ), new THREE.Vector3( 0, 0, - 1 ) ] );
 
         const line = new THREE.Line( geometry );
